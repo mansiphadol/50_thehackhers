@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Search Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Search Results</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Company Name</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Job Description</th>
+                    <th>Job URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job_data in jobs_data %}
+                {% if job_data.job_title != 'N/A' and job_data.company_name != 'N/A' and job_data.location != 'N/A' and job_data.salary != 'N/A' and job_data.job_desc != 'N/A' %}
+                <tr>
+                    <td>{{ job_data.job_title }}</td>
+                    <td>{{ job_data.company_name }}</td>
+                    <td>{{ job_data.location }}</td>
+                    <td>{{ job_data.salary }}</td>
+                    <td>{{ job_data.job_desc }}</td>
+                    {% if job_data.job_url != 'N/A' %}
+                    <td><a href="{{ job_data.job_url }}" target="_blank">Apply</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

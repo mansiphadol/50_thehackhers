@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrapped Images and Hyperlinks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% for item in scrapped_data %}
+            <div class="image-box">
+                <img src="{{ item['src'] }}" width="200">
+                <a href="{{ item['href'] }}" target="_blank">{{ item['text'] }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

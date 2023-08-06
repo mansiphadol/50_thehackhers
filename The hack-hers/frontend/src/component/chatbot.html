@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot Interface</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 mt-5">
+        <div class="card">
+          <div class="card-header">
+           <b> Chatbot </b>
+          </div>
+          <div class="card-body">
+            <!-- <div class="mb-3">
+              <label for="userInput">Type your query:</label>
+              <input type="text" id="userInput" class="form-control" placeholder="Type here...">
+            </div> -->
+            
+            <div id="chatbox" class="mb-3">
+              <p class="bot-message">Welcome! How can I assist you today?</p>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-success" onclick="jobSearch()">Job Search</button>
+              <button type="button" class="btn btn-info" onclick="schemeSearch()">Scheme Search</button>
+              <button type="button" class="btn btn-warning" onclick="viewTrainings()">View Trainings</button>
+            </div>
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary" onclick="sendMessage()">Send</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      var userInput = document.getElementById('userInput').value;
+      // Implement the logic to handle user input and display chatbot responses here.
+      // You can use AJAX calls or JavaScript functions to interact with the backend.
+
+      // For this example, let's assume the response is hardcoded.
+      var botResponse = "I'm sorry, I'm just a demo. I cannot perform real searches now.";
+      appendMessage('user', userInput);
+      appendMessage('bot', botResponse);
+      document.getElementById('userInput').value = '';
+    }
+
+    function jobSearch() {
+      // Implement the logic for job search functionality here.
+      var botResponse = "Here are some job search results...";
+      appendMessage('bot', botResponse);
+    }
+
+    function schemeSearch() {
+      // Implement the logic for scheme search functionality here.
+      var botResponse = "Here are some scheme search results...";
+      appendMessage('bot', botResponse);
+    }
+
+    function viewTrainings() {
+      // Implement the logic for view trainings functionality here.
+      var botResponse = "Here are some available trainings...";
+      appendMessage('bot', botResponse);
+    }
+
+    function appendMessage(sender, message) {
+      var chatbox = document.getElementById('chatbox');
+      var newMessage = document.createElement('p');
+      newMessage.className = sender === 'bot' ? 'bot-message' : 'user-message';
+      newMessage.innerText = message;
+      chatbox.appendChild(newMessage);
+    }
+  </script>
+</body>
+
+</html>
